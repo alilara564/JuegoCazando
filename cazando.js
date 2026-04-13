@@ -42,16 +42,6 @@ function iniciarJuego() {
     graficarGato();
     graficarComida();
 }
- 
-/*function mover(direccion) {
-    if (direccion === "arriba") gatoY -= VELOCIDAD;
-    if (direccion === "abajo") gatoY += VELOCIDAD;
-    if (direccion === "izquierda") gatoX -= VELOCIDAD;
-    if (direccion === "derecha") gatoX += VELOCIDAD;
-    limpiarCanvas();
-    graficarGato();
-    graficarComida();
-}*/
 
 function limpiarCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -63,49 +53,30 @@ function actualizarFotograma(){
     graficarComida();
 }
 
-
-
 function moverIzquierda(){
     gatoX -= VELOCIDAD;
     actualizarFotograma();
-    //frthjkhck
-    //gfuilhlih
-    //dtdifilgioh
-    //duydiuilhi
 }
 
 function moverDerecha(){
     gatoX += VELOCIDAD;
     actualizarFotograma();
-    //frthjkhck
-    //gfuilhlih
-    //dtdifilgioh
-    //duydiuilhi
 }
 
 function moverArriba(){
     gatoY -= VELOCIDAD;
     actualizarFotograma();
-    //frthjkhck
-    //gfuilhlih
-    //dtdifilgioh
-    //duydiuilhi
 }
 
 function moverAbajo(){
     gatoY += VELOCIDAD;
     actualizarFotograma();
-    //frthjkhck
-    //gfuilhlih
-    //dtdifilgioh
-    //duydiuilhi
 }
  
 document.getElementById("botonArriba").onclick = () => moverArriba();
 document.getElementById("botonAbajo").onclick = () => moverAbajo();
 document.getElementById("botonIzquierda").onclick = () => moverIzquierda();
 document.getElementById("botonDerecha").onclick = () => moverDerecha();
- 
  
 iniciarJuego();
 actualizarFotograma()
