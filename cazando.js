@@ -51,6 +51,7 @@ function actualizarFotograma(){
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverIzquierda(){
@@ -71,6 +72,17 @@ function moverArriba(){
 function moverAbajo(){
     gatoY += VELOCIDAD;
     actualizarFotograma();
+}
+
+function detectarColision(){
+    if (
+        gatoX < comidaX + ANCHOCOMIDA &&
+        gatoX + ANCHOGATO > comidaX &&
+        gatoY < comidaY + ALTURACOMIDA &&
+        gatoY + ALTURAGATO > comidaY
+    ) {
+        alert("¡El gato comió!");
+    }
 }
  
 document.getElementById("botonArriba").onclick = () => moverArriba();
