@@ -14,6 +14,9 @@ let gatoX = 0;
 let gatoY = 0;
 const ANCHOGATO = 50;
 const ALTURAGATO = 50;
+
+//puntos
+let puntos = 0;
  
 // Comida
 let comidaX = 50;
@@ -41,6 +44,7 @@ function iniciarJuego() {
     comidaY = canvas.height - ALTURACOMIDA;
     graficarGato();
     graficarComida();
+    
 }
 
 function limpiarCanvas(){
@@ -82,7 +86,13 @@ function detectarColision(){
         gatoY + ALTURAGATO > comidaY
     ) {
         alert("¡El gato comió!");
+        sumarPuntos();
     }
+}
+
+function sumarPuntos(){
+    puntos ++;
+    mostrarEnSpan("lblPuntos",puntos);
 }
  
 document.getElementById("botonArriba").onclick = () => moverArriba();
