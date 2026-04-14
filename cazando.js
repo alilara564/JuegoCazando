@@ -133,6 +133,7 @@ function restarTiempo(){
         usaInput = false;
         mostrarEnSpan("lblPuntos",puntos);
         mostrarEnSpan("lblTiempo",tiempo);
+        mostrarEnSpan("mensaje", "PERDISTE!!");
     }
 
     if(puntos >= 6 && tiempo > 0){
@@ -143,6 +144,7 @@ function restarTiempo(){
         usaInput = false;
         mostrarEnSpan("lblPuntos",puntos);
         mostrarEnSpan("lblTiempo",tiempo);
+        mostrarEnSpan("mensaje", "GANASTE!!");
     }
 }
 
