@@ -1,0 +1,6 @@
+Promp 1:
+Soy estudiante principiante primer nivel en desarrollo de software web,
+acctua como nturor en programacion web, 
+estoy desarrollando un taller un juego basico cazando comida,
+necesito mejorar mi diseño CSS de mi proyecto.
+promp 2:

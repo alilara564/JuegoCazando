@@ -1,13 +1,8 @@
 let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
-const VELOCIDAD = 15;
+const VELOCIDAD = 20;
 
-let inputs = document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowUp") moverArriba();
-    if (event.key === "ArrowDown") moverAbajo();
-    if (event.key === "ArrowLeft") moverIzquierda();
-    if (event.key === "ArrowRight") moverDerecha();
-});
+
 
 // Gato
 let gatoX = 0;
@@ -17,8 +12,11 @@ const ALTURAGATO = 50;
 
 //complementos
 let puntos = 0;
-let tiempo;
- 
+let tiempo = 12;
+let myInterval;
+let usaInput = false; 
+let juegoIniciado = false;
+
 // Comida
 let comidaX = 50;
 let comidaY = 50;
@@ -37,18 +35,24 @@ function graficarGato() {
 function graficarComida() {
     graficar(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
 };
+
+function jugar(){
+    if(juegoIniciado == false){
+        iniciarJuego();
+    }
+}
  
 function iniciarJuego() {
     gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
     gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
     comidaX = 0;
     comidaY = 0;
-    tiempo = 10;
-    puntos = 0;
+    usaInput = true;
+    juegoIniciado = true;
     graficarGato();
     graficarComida();
     actualizarFotograma();
-    iniciarConteo();
+    myInterval = setInterval(restarTiempo,1000)
 }
 
 function limpiarCanvas(){
@@ -60,6 +64,7 @@ function actualizarFotograma(){
     graficarGato();
     graficarComida();
     detectarColision();
+    setInput();
 }
 
 function moverIzquierda(){
@@ -116,12 +121,57 @@ function cuentaRegresiva(){
     }
 }
 
-setInterval(cuentaRegresiva,1000)
- 
-document.getElementById("botonArriba").onclick = () => moverArriba();
-document.getElementById("botonAbajo").onclick = () => moverAbajo();
-document.getElementById("botonIzquierda").onclick = () => moverIzquierda();
-document.getElementById("botonDerecha").onclick = () => moverDerecha();
- 
-actualizarFotograma();
-//setInterval(cuentaRegresiva,intervaloDeTiempo);
+function restarTiempo(){
+    tiempo--;
+    mostrarEnSpan("lblTiempo",tiempo);
+
+    if (puntos < 6 && tiempo <= 0){
+        clearInterval(myInterval);
+        alert("HAS PERDIDO :(");
+        puntos = 0;
+        tiempo = 12;
+        usaInput = false;
+        mostrarEnSpan("lblPuntos",puntos);
+        mostrarEnSpan("lblTiempo",tiempo);
+    }
+
+    if(puntos >= 6 && tiempo > 0){
+        clearInterval(myInterval);
+        alert("BRO GANASTE :D");
+        puntos = 0;
+        tiempo = 12;
+        usaInput = false;
+        mostrarEnSpan("lblPuntos",puntos);
+        mostrarEnSpan("lblTiempo",tiempo);
+    }
+}
+
+function reiniciarJuego(){
+    clearInterval(myInterval);
+    puntos = 0;
+    tiempo = 12;
+    mostrarEnSpan("lblPuntos",puntos);
+    mostrarEnSpan("lblTiempo",tiempo);
+    iniciarJuego();
+}
+
+function setInput(){
+
+    if (usaInput == true){
+        document.getElementById("botonAbajo").onclick = () => moverAbajo();
+        document.getElementById("botonIzquierda").onclick = () => moverIzquierda();
+        document.getElementById("botonDerecha").onclick = () => moverDerecha();
+        document.getElementById("botonArriba").onclick = () => moverArriba();
+    }
+    
+    if (usaInput == false){
+        return 0;
+    }
+}
+
+let inputs = document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp" && usaInput == true) moverArriba();
+    if (event.key === "ArrowDown" && usaInput == true) moverAbajo();
+    if (event.key === "ArrowLeft" && usaInput == true) moverIzquierda();
+    if (event.key === "ArrowRight" && usaInput == true) moverDerecha();
+});
