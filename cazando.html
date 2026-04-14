@@ -6,16 +6,10 @@
   </head>
   <body>
 
-     
-
     <h1>Juego Cazando</h1>
     <p>Autor: Ali Lara</p>
-    <input type="button" value = Iniciar onclick="iniciarJuego()"/>
-    <span id = "lblTiempo" class = "panel">TIME</span>
 
     <canvas id="areaJuego" width="500" height="500"></canvas>
-
-    <p id = lblPuntos>Puntos: 00</p>
 
     <div class="controles">
       <button id="botonArriba" onclick="arriba();">⬆</button>
@@ -27,11 +21,16 @@
 
 
     <div class="panel">
-      <span>Puntos: <span id="puntos">0</span></span>
-      <span>Tiempo: <span id="tiempo">10</span></span>
+      <span>Puntos: <span id="lblPuntos">0</span></span>
+      <span>Tiempo: <span id="lblTiempo">12</span></span>
     </div>
 
-    <p id="mensaje"></p>
+    <div class="panel">
+      <input type="button" value="INICIAR" onclick="jugar()">
+      <input type="button" value="REINICIAR" onclick="reiniciarJuego()">
+    </div>
+
+    <p id="mensaje">GANASTE-PERDISTE</p>
     <script src="cazando.js"></script>
     <script src = "utils.js"></script>
 
