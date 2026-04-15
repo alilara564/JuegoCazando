@@ -45,10 +45,10 @@ function jugar(){
 function iniciarJuego() {
     gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
     gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
-    comidaX = 0;
-    comidaY = 0;
-    usaInput = true;
+    comidaX = 250;
+    comidaY = 250;
     juegoIniciado = true;
+    usaInput = true;
     graficarGato();
     graficarComida();
     actualizarFotograma();
@@ -64,7 +64,7 @@ function actualizarFotograma(){
     graficarGato();
     graficarComida();
     detectarColision();
-    setInput();
+    limitarMovimiento();
 }
 
 function moverIzquierda(){
@@ -96,6 +96,28 @@ function detectarColision(){
     ) {
         sumarPuntos();
         resetPositionComida();
+    }
+}
+
+function limitarMovimiento() {
+    // Límite izquierdo
+    if (gatoX < 0) {
+        gatoX = 0;
+    }
+
+    // Límite derecho
+    if (gatoX + ANCHOGATO > canvas.width) {
+        gatoX = canvas.width - ANCHOGATO;
+    }
+
+    // Límite superior
+    if (gatoY < 0) {
+        gatoY = 0;
+    }
+
+    // Límite inferior
+    if (gatoY + ALTURAGATO > canvas.height) {
+        gatoY = canvas.height - ALTURAGATO;
     }
 }
 
@@ -140,6 +162,7 @@ function reiniciarJuego(){
     clearInterval(myInterval);
     puntos = 0;
     tiempo = 12;
+    usaInput = true;
     mostrarEnSpan("lblPuntos",puntos);
     mostrarEnSpan("lblTiempo",tiempo);
     iniciarJuego();
