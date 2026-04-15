@@ -9,14 +9,15 @@
     <h1>Juego Cazando</h1>
     <p>Autor: Ali Lara</p>
 
-    <canvas id="areaJuego" width="500" height="500"></canvas>
+    <canvas id="areaJuego" class = "gameArea" width="500" height="500"></canvas>
 
     <div class="controles">
-      <button id="botonArriba" onclick="arriba();">⬆</button>
-      <br>
-      <button id="botonIzquierda" onclick="izquierda();">⬅</button>
-      <button id="botonAbajo" onclick="abajo();">⬇</button>
-      <button id="botonDerecha" onclick="derecha();">➡</button>
+      <div class="joystick">
+        <button id="botonArriba" onclick="arriba();">⬆</button><br>
+        <button id="botonIzquierda" onclick="izquierda();">⬅</button>
+        <button id="botonAbajo" onclick="abajo();">⬇</button>
+        <button id="botonDerecha" onclick="derecha();">➡</button>
+      </div>
     </div>
 
 
@@ -25,9 +26,9 @@
       <span>Tiempo: <span id="lblTiempo">12</span></span>
     </div>
 
-    <div class="panel">
-      <input type="button" value="INICIAR" onclick="jugar()">
-      <input type="button" value="REINICIAR" onclick="reiniciarJuego()">
+    <div>
+      <input class="btn iniciar" type="button" value="INICIAR" onclick="jugar()">
+      <input class="btn reiniciar" type="button" value="REINICIAR" onclick="reiniciarJuego()">
     </div>
 
     <p id="mensaje"></p>
