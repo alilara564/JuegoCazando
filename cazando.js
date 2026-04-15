@@ -109,18 +109,6 @@ function sumarPuntos(){
     mostrarEnSpan("lblPuntos",puntos);
 }
 
-function cuentaRegresiva(){
-    tiempo--;   
-    mostrarEnSpan("lblTiempo",parseInt(tiempo));
-    if (tiempo <= 0 && puntos < 6){
-        alert("Perdiste")
-        iniciarJuego();
-    }
-    else if (tiempo > 0 && puntos >= 6){
-        mostrarEnSpan("lbl tiempo", "Ganaste")
-    }
-}
-
 function restarTiempo(){
     tiempo--;
     mostrarEnSpan("lblTiempo",tiempo);
@@ -157,20 +145,12 @@ function reiniciarJuego(){
     iniciarJuego();
 }
 
-function setInput(){
 
-    if (usaInput == true){
-        document.getElementById("botonAbajo").onclick = () => moverAbajo();
-        document.getElementById("botonIzquierda").onclick = () => moverIzquierda();
-        document.getElementById("botonDerecha").onclick = () => moverDerecha();
-        document.getElementById("botonArriba").onclick = () => moverArriba();
-    }
-    
-    if (usaInput == false){
-        return 0;
-    }
-}
-
+document.getElementById("botonAbajo").onclick = () => moverAbajo();
+document.getElementById("botonIzquierda").onclick = () => moverIzquierda();
+document.getElementById("botonDerecha").onclick = () => moverDerecha();
+document.getElementById("botonArriba").onclick = () => moverArriba();
+ 
 let inputs = document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp" && usaInput == true) moverArriba();
     if (event.key === "ArrowDown" && usaInput == true) moverAbajo();
