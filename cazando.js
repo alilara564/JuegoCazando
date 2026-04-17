@@ -146,7 +146,7 @@ function restarTiempo(){
         mostrarEnSpan("mensaje", "PERDISTE!!");
     }
 
-    if(puntos >= 6 && tiempo > 0){
+    if(puntos >= 6 && tiempo >= 0){
         clearInterval(myInterval);
         alert("BRO GANASTE :D");
         puntos = 0;

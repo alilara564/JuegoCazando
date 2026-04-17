@@ -78,11 +78,11 @@ canvas {
 }
 
 .iniciar {
-  background: linear-gradient(145deg, #34c7599e, #28a745);
+  background: linear-gradient(145deg, #c7ae349e, #28a745);
 }
 
 .reiniciar {
-  background: linear-gradient(145deg, #ff3a3096, #c62828);
+  background: linear-gradient(145deg, #4530ff96, #c62828);
 }
 
 button {
