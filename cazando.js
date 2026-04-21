@@ -139,7 +139,7 @@ function restarTiempo(){
         clearInterval(myInterval);
         alert("HAS PERDIDO :(");
         puntos = 0;
-        tiempo = 12;
+        tiempo = 15;
         usaInput = false;
         mostrarEnSpan("lblPuntos",puntos);
         mostrarEnSpan("lblTiempo",tiempo);
@@ -150,7 +150,7 @@ function restarTiempo(){
         clearInterval(myInterval);
         alert("BRO GANASTE :D");
         puntos = 0;
-        tiempo = 12;
+        tiempo = 15;
         usaInput = false;
         mostrarEnSpan("lblPuntos",puntos);
         mostrarEnSpan("lblTiempo",tiempo);
@@ -161,7 +161,7 @@ function restarTiempo(){
 function reiniciarJuego(){
     clearInterval(myInterval);
     puntos = 0;
-    tiempo = 12;
+    tiempo = 15;
     usaInput = true;
     mostrarEnSpan("lblPuntos",puntos);
     mostrarEnSpan("lblTiempo",tiempo);
