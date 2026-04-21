@@ -2,13 +2,18 @@ let canvas = document.getElementById("areaJuego");
 let ctx = canvas.getContext("2d");
 const VELOCIDAD = 20;
 
+let imagenGato = new Image();
+imagenGato.src = "gato.png";
+
+let imagenComida = new Image();
+imagenComida.src = "comida.png";
 
 
 // Gato
 let gatoX = 0;
 let gatoY = 0;
-const ANCHOGATO = 50;
-const ALTURAGATO = 50;
+const ANCHOGATO = 100;
+const ALTURAGATO = 100;
 
 //complementos
 let puntos = 0;
@@ -20,21 +25,29 @@ let juegoIniciado = false;
 // Comida
 let comidaX = 50;
 let comidaY = 50;
-const ANCHOCOMIDA = 30;
-const ALTURACOMIDA = 30;
+const ANCHOCOMIDA = 90;
+const ALTURACOMIDA = 90;
  
 function graficar(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, ancho, alto);
 };
  
-function graficarGato() {
+/*function graficarGato() {
     graficar(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "#000000");
+};*/
+
+function graficarGato() {
+    ctx.drawImage(imagenGato, gatoX, gatoY, ANCHOGATO, ALTURAGATO);
 };
- 
+
 function graficarComida() {
+    ctx.drawImage(imagenComida, comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA);
+}
+ 
+/*function graficarComida() {
     graficar(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
-};
+};*/
 
 function jugar(){
     if(juegoIniciado == false){
