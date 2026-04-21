@@ -96,6 +96,7 @@ function detectarColision(){
     ) {
         sumarPuntos();
         resetPositionComida();
+        resetearTiempo();
     }
 }
 
@@ -129,6 +130,11 @@ function resetPositionComida(){
 function sumarPuntos(){
     puntos ++;
     mostrarEnSpan("lblPuntos",puntos);
+}
+
+function resetearTiempo(){
+    tiempo = 15;
+    mostrarEnSpan("lblTiempo",tiempo);
 }
 
 function restarTiempo(){
