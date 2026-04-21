@@ -12,7 +12,7 @@ const ALTURAGATO = 50;
 
 //complementos
 let puntos = 0;
-let tiempo = 12;
+let tiempo = 15;
 let myInterval;
 let usaInput = false; 
 let juegoIniciado = false;
